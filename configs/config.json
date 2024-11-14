@@ -1,0 +1,37 @@
+{
+    "model": {
+        "name": "CycleGAN",
+        "generator_params": {
+            "in_channels": 3,
+            "out_channels": 3,
+            "num_residual_blocks": 9
+        },
+        "discriminator_params": {
+            "in_channels": 3
+        }
+    },
+    "data": {
+        "domain_A_path": "data/domain_A",
+        "domain_B_path": "data/domain_B",
+        "img_size": 256,
+        "num_workers": 4
+    },
+    "augmentation": {
+        "name": "advanced"
+    },
+    "training": {
+        "batch_size": 1,
+        "learning_rate": 0.0002,
+        "beta1": 0.5,
+        "num_epochs": 200,
+        "decay_epoch": 100,
+        "lambda_identity": 5.0,
+        "lambda_cycle": 10.0,
+        "save_interval": 10,
+        "log_interval": 100,
+        "verbose": true
+    },
+    "evaluation": {
+        "metric": "FID"
+    }
+}
